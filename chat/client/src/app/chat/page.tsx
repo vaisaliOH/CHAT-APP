@@ -1158,7 +1158,7 @@ socket.emit("send_message", {
   }
 
   return (
-    <main className="min-h-dvh overflow-x-hidden overflow-y-auto px-3 py-3 text-slate-100 sm:px-4 sm:py-4 lg:px-8 lg:py-6">
+    <main className="min-h-dvh overflow-x-hidden overflow-y-auto px-3 py-3 text-slate-100 sm:px-4 sm:py-4 lg:h-dvh lg:overflow-hidden lg:px-8 lg:py-6">
       <div className="mx-auto flex min-h-full w-full max-w-400 flex-col overflow-hidden rounded-2xl border border-white/10 bg-[rgba(15,23,42,0.84)] shadow-2xl shadow-black/35 backdrop-blur-xl sm:rounded-[28px] lg:h-full">
         <header className="sticky top-0 z-10 border-b border-white/10 bg-slate-950/85 px-4 py-4 backdrop-blur sm:px-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -1190,8 +1190,8 @@ socket.emit("send_message", {
           </div>
         </header>
 
-        <div className="grid min-h-0 flex-1 grid-cols-1 gap-4 px-3 py-3 sm:px-4 lg:grid-cols-[280px_minmax(0,1fr)_320px] lg:px-5">
-          <aside className="flex min-h-0 flex-col rounded-2xl border border-white/10 bg-[#111b2d] p-4 shadow-lg shadow-slate-950/20 lg:overflow-hidden">
+        <div className="grid min-h-0 flex-1 grid-cols-1 gap-4 px-3 py-3 sm:px-4 lg:h-full lg:grid-cols-[280px_minmax(0,1fr)_320px] lg:px-5">
+          <aside className="flex min-h-0 flex-col rounded-2xl border border-white/10 bg-[#111b2d] p-4 shadow-lg shadow-slate-950/20 lg:max-h-full lg:overflow-y-auto">
             <div className="flex items-center justify-between">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
                 Workspace Channels
@@ -1281,7 +1281,7 @@ socket.emit("send_message", {
             </div>
           </aside>
 
-          <section className="flex min-h-[60dvh] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#111827] text-slate-100 shadow-xl shadow-black/20 lg:min-h-0">
+          <section className="flex min-h-[60dvh] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#111827] text-slate-100 shadow-xl shadow-black/20 lg:h-full lg:min-h-0">
             <div className="border-b border-white/10 px-5 py-4">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div className="min-w-0">
@@ -1334,7 +1334,7 @@ socket.emit("send_message", {
               </div>
             </div>
 
-            <div className="flex-1 overflow-hidden px-3 py-3 sm:px-5 sm:py-5">
+            <div className="flex-1 min-h-0 overflow-hidden px-3 py-3 sm:px-5 sm:py-5">
               <div className="flex h-full min-h-0 flex-col rounded-2xl border border-white/10 bg-slate-950/70 p-4 shadow-sm">
               
               {pinnedMessages.length > 0 && (
@@ -1365,7 +1365,7 @@ socket.emit("send_message", {
   />
                 </div>
                 {activeTab === "chat" && (
-                <div className="flex-1 overflow-y-auto pr-1">
+                <div className="flex-1 min-h-0 overflow-y-auto pr-1 pb-2">
                   {filteredMessages.map((msg, index) => {
                     const isSystem = msg.username === "System";
                     const isOwnMessage = msg.username === username;
@@ -1390,7 +1390,7 @@ socket.emit("send_message", {
                 </div>
                 )}
 {activeTab === "doubts" && (
-  <div className="h-full overflow-y-auto space-y-3 py-4 pr-2">
+  <div className="h-full min-h-0 overflow-y-auto space-y-3 py-4 pr-2">
 
                   <div className="flex flex-col gap-2 sm:flex-row">
       <input
@@ -1653,7 +1653,7 @@ socket.emit("send_message", {
             </div>
           </section>
 
-          <aside className="flex min-h-[60dvh] flex-col rounded-2xl border border-white/10 bg-[#111b2d] p-4 shadow-lg shadow-slate-950/20 lg:min-h-0">
+          <aside className="flex min-h-[60dvh] flex-col rounded-2xl border border-white/10 bg-[#111b2d] p-4 shadow-lg shadow-slate-950/20 lg:max-h-full lg:min-h-0 lg:overflow-y-auto">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
               Direct Messages
             </p>
