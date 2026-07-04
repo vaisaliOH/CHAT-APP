@@ -89,7 +89,12 @@ const connectDB = require("./config/db");
 
 const app = express();
 
-app.use(cors());
+const clientOrigin = process.env.CLIENT_ORIGIN?.trim();
+const corsOptions = clientOrigin
+  ? { origin: clientOrigin, methods: ["GET", "POST"] }
+  : { origin: true, methods: ["GET", "POST"] };
+
+app.use(cors(corsOptions));
 
 // allows backend to read JSON data from frontend requests
 app.use(express.json());
@@ -104,10 +109,7 @@ const server = http.createServer(app);
 // creates websocket server
 // attaches Socket.IO to HTTP server
 const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-  },
+  cors: corsOptions,
 });
 
 
@@ -844,8 +846,10 @@ app.get(
   }
 );
 // starts backend server
-server.listen(5000, () => {
-  console.log("Server running on port 5000");
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 /*
 
