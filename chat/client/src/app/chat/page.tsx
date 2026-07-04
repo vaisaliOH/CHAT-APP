@@ -1158,15 +1158,15 @@ socket.emit("send_message", {
   }
 
   return (
-    <main className="min-h-dvh overflow-y-auto px-3 py-3 text-slate-100 sm:px-6 lg:h-dvh lg:overflow-hidden lg:px-8 lg:py-6">
-      <div className="mx-auto flex min-h-full w-full max-w-400 flex-col overflow-hidden rounded-2xl border border-white/10 bg-[rgba(15,23,42,0.84)] shadow-2xl shadow-black/35 backdrop-blur-xl lg:h-full lg:rounded-[28px]">
-        <header className="sticky top-0 z-10 border-b border-white/10 bg-slate-950/85 px-5 py-4 backdrop-blur sm:px-7">
-          <div className="flex items-center justify-between gap-4">
-            <div>
+    <main className="min-h-dvh overflow-x-hidden overflow-y-auto px-3 py-3 text-slate-100 sm:px-4 sm:py-4 lg:px-8 lg:py-6">
+      <div className="mx-auto flex min-h-full w-full max-w-400 flex-col overflow-hidden rounded-2xl border border-white/10 bg-[rgba(15,23,42,0.84)] shadow-2xl shadow-black/35 backdrop-blur-xl sm:rounded-[28px] lg:h-full">
+        <header className="sticky top-0 z-10 border-b border-white/10 bg-slate-950/85 px-4 py-4 backdrop-blur sm:px-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="min-w-0">
               <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-sky-300/90">
                 SyncSpace
               </p>
-                <h1 className="mt-1 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              <h1 className="mt-1 text-xl font-semibold tracking-tight text-white sm:text-2xl lg:text-3xl">
                 Real-Time Team Collaboration Platform
               </h1>
               <p className="mt-1 text-sm text-slate-300">
@@ -1183,14 +1183,14 @@ socket.emit("send_message", {
                 localStorage.removeItem("username");
                 window.location.href = "/login";
               }}
-              className="inline-flex items-center justify-center rounded-full border border-rose-400/20 bg-rose-500/10 px-4 py-2 text-sm font-medium text-rose-100 transition hover:bg-rose-500/20"
+              className="inline-flex self-start items-center justify-center rounded-full border border-rose-400/20 bg-rose-500/10 px-4 py-2 text-sm font-medium text-rose-100 transition hover:bg-rose-500/20 sm:self-auto"
             >
               Logout
             </button>
           </div>
         </header>
 
-        <div className="grid min-h-0 flex-1 gap-4 px-3 py-3 sm:px-4 lg:grid-cols-[280px_minmax(0,1fr)_320px] lg:px-5">
+        <div className="grid min-h-0 flex-1 grid-cols-1 gap-4 px-3 py-3 sm:px-4 lg:grid-cols-[280px_minmax(0,1fr)_320px] lg:px-5">
           <aside className="flex min-h-0 flex-col rounded-2xl border border-white/10 bg-[#111b2d] p-4 shadow-lg shadow-slate-950/20 lg:overflow-hidden">
             <div className="flex items-center justify-between">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
@@ -1281,22 +1281,22 @@ socket.emit("send_message", {
             </div>
           </aside>
 
-          <section className="flex min-h-[75dvh] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#111827] text-slate-100 shadow-xl shadow-black/20 lg:min-h-0">
+          <section className="flex min-h-[60dvh] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#111827] text-slate-100 shadow-xl shadow-black/20 lg:min-h-0">
             <div className="border-b border-white/10 px-5 py-4">
-              <div className="flex items-center justify-between gap-3">
-                <div>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div className="min-w-0">
   <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300">
     Workspace Feed
   </p>
 
-  <h2 className="mt-1 text-2xl font-semibold text-white">
+  <h2 className="mt-1 text-xl font-semibold text-white sm:text-2xl">
     # {selectedChannel}
   </h2>
 
-  <div className="mt-3 flex gap-2">
+  <div className="mt-3 flex flex-wrap gap-2">
     <button
       onClick={() => setActiveTab("chat")}
-      className={`rounded-xl px-3 py-1 text-sm ${
+      className={`rounded-xl px-3 py-1 text-xs sm:text-sm ${
         activeTab === "chat"
           ? "bg-sky-500 text-white"
           : "bg-slate-800 text-slate-300"
@@ -1307,7 +1307,7 @@ socket.emit("send_message", {
 
     <button
       onClick={() => setActiveTab("doubts")}
-      className={`rounded-xl px-3 py-1 text-sm ${
+      className={`rounded-xl px-3 py-1 text-xs sm:text-sm ${
         activeTab === "doubts"
           ? "bg-sky-500 text-white"
           : "bg-slate-800 text-slate-300"
@@ -1318,7 +1318,7 @@ socket.emit("send_message", {
 
     <button
       onClick={() => setActiveTab("resources")}
-      className={`rounded-xl px-3 py-1 text-sm ${
+      className={`rounded-xl px-3 py-1 text-xs sm:text-sm ${
         activeTab === "resources"
           ? "bg-sky-500 text-white"
           : "bg-slate-800 text-slate-300"
@@ -1327,8 +1327,8 @@ socket.emit("send_message", {
       📂 Resources
     </button>
   </div>
-</div>
-                <span className="rounded-full border border-sky-400/20 bg-sky-500/10 px-3 py-1 text-xs font-medium text-sky-200">
+                  </div>
+                  <span className="self-start rounded-full border border-sky-400/20 bg-sky-500/10 px-3 py-1 text-xs font-medium text-sky-200 sm:self-auto">
                   Live
                 </span>
               </div>
@@ -1392,7 +1392,7 @@ socket.emit("send_message", {
 {activeTab === "doubts" && (
   <div className="h-full overflow-y-auto space-y-3 py-4 pr-2">
 
-    <div className="flex gap-2">
+                  <div className="flex flex-col gap-2 sm:flex-row">
       <input
         value={newDoubt}
         onChange={(e) =>
@@ -1743,7 +1743,7 @@ socket.emit("send_message", {
 
       {selectedProfile && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 px-4 backdrop-blur-sm">
-          <div className="w-full max-w-md rounded-2xl border border-white/10 bg-[#111b2d] p-5 text-slate-100 shadow-2xl shadow-black/40">
+          <div className="w-full max-w-md rounded-2xl border border-white/10 bg-[#111b2d] p-5 text-slate-100 shadow-2xl shadow-black/40 sm:max-h-[90dvh] sm:overflow-y-auto">
             <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
               <div className="flex items-center gap-3">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sky-500/20 text-lg font-bold text-sky-100">
