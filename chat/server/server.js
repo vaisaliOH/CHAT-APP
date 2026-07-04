@@ -99,6 +99,10 @@ app.use(cors(corsOptions));
 // allows backend to read JSON data from frontend requests
 app.use(express.json());
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 
 // creates actual HTTP server
 // Socket.IO works on top of HTTP server
